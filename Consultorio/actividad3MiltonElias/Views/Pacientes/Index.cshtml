@@ -1,0 +1,51 @@
+﻿@model IEnumerable<actividad3MiltonElias.Models.Pacientes>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nombre del médico
+        </th>
+        <th>
+            Nombre del paciente
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Edad)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Medico.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Edad)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idpaciente }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idpaciente }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idpaciente })
+        </td>
+    </tr>
+}
+
+</table>
